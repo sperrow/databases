@@ -31,16 +31,16 @@ describe("Persistent Node Chat Server", function() {
     // Post the user to the chat server.
     request({ method: "POST",
               uri: "http://127.0.0.1:3000/classes/users",
-              json: { user_name: "Valjean" }
+              json: { username: "Valjean" }
     }, function () {
       console.log('line 36');
       // Post a message to the node chat server:
       request({ method: "POST",
               uri: "http://127.0.0.1:3000/classes/messages",
               json: {
-                user_id: 3,
+                username: 'Kevin',
                 text: "In mercy's name, three days is all I need.",
-                room_id: 3
+                roomname: 'lobby'
               }
       }, function () {
         // Now if we look in the database, we should find the
@@ -66,7 +66,8 @@ describe("Persistent Node Chat Server", function() {
 
   it("Should output all messages from the DB", function(done) {
     // Let's insert a message into the db
-       var queryString = "";
+       var queryString = "INSERT INTO messages (text, userid, roomname) \
+                          values ('Men like you can never change!', 2, 'main');";
        var queryArgs = [];
     // TODO - The exact query string and query args to use
     // here depend on the schema you design, so I'll leave

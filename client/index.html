@@ -13,28 +13,23 @@
     <script src="scripts/app.js"></script>
   </head>
   <body>
+    <script>
+      $(app.init.bind(app));
+    </script>
     <div id="main">
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
-      <div class="options">
-        <span>Room: </span>
-        <select name="roomname" id="roomname">
-          <option value="lobby">lobby</option>
+      <div class="spinner"><img src="images/spiffygif_46x46.gif"></div>
+      <div id="rooms">
+        Room:
+        <select id="roomSelect">
         </select>
-        <!-- <button id="roombutton">Enter</button> -->
-        <br><br>
-        <span>New Room: </span>
-        <input type="text" id="newroom">
-        <button id="createroombutton">Enter</button>
-        <br><br>
-        <form id="form" action="javascript:app.submit()">
-        <span>Message: </span>  <input class="postfield" type="text"><input type="submit" value="Send">
-        </form><!-- 
-        <input type="text" name="text" id="messagetext">
-        <button id="submitbutton">Submit</button>   -->
       </div>
-      <div id="chats">
-      </div>
+      <form action="#" id="send" method="post">
+        <input type="text" name="message" id="message"/>
+        <input type="submit" name="submit" class="submit"/>
+      </form>
+      <div id="chats"></div>
     </div>
   </body>
 </html>
